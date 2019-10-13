@@ -1,0 +1,9 @@
+language: java
+before_deploy:
+  - pip install --user cloudsmith-cli
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: cloudsmith push maven eisti-sib/sib-2019 --pom-file pom.xml target/loancalc.jar
+  on:
+    branch: master  
